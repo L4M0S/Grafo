@@ -1,0 +1,46 @@
+# Project: Grafo
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = main.o node.o stack.o queue.o btree.o graph.o bnode.o
+LINKOBJ  = main.o node.o stack.o queue.o btree.o graph.o bnode.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = Grafo.exe
+CXXFLAGS = $(CXXINCS) -std=c++11
+CFLAGS   = $(INCS) -std=c++11
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+node.o: node.cpp
+	$(CPP) -c node.cpp -o node.o $(CXXFLAGS)
+
+stack.o: stack.cpp
+	$(CPP) -c stack.cpp -o stack.o $(CXXFLAGS)
+
+queue.o: queue.cpp
+	$(CPP) -c queue.cpp -o queue.o $(CXXFLAGS)
+
+btree.o: btree.cpp
+	$(CPP) -c btree.cpp -o btree.o $(CXXFLAGS)
+
+graph.o: graph.cpp
+	$(CPP) -c graph.cpp -o graph.o $(CXXFLAGS)
+
+bnode.o: bnode.cpp
+	$(CPP) -c bnode.cpp -o bnode.o $(CXXFLAGS)
